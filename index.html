@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator App</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap">
+</head>
+<body class="light-mode">
+  <div class="calculator-container">
+    <!-- Calculator Header -->
+    <div class="calculator-header">
+      <h1>Calculator</h1>
+      <div class="header-buttons">
+        <button id="theme-toggle" class="icon-button">
+          <svg id="moon-icon" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg id="sun-icon" class="icon hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+        <button id="history-toggle" class="icon-button">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- History Panel (hidden by default) -->
+    <div id="history-panel" class="history-panel hidden">
+      <h2>Calculation History</h2>
+      <ul id="history-list" class="history-list">
+        <!-- History items will be added here -->
+      </ul>
+      <button id="clear-history" class="clear-history-btn">Clear History</button>
+    </div>
+
+    <!-- Calculator Display -->
+    <div class="calculator-display">
+      <div class="previous-operation" id="previous-operation"></div>
+      <div class="current-input" id="current-input">0</div>
+    </div>
+
+    <!-- Calculator Keypad -->
+    <div class="calculator-keypad">
+      <!-- Top row: Clear, Backspace, Percentage, Divide -->
+      <button class="calculator-key function-key" data-action="clear">C</button>
+      <button class="calculator-key function-key" data-action="backspace">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"></path>
+        </svg>
+      </button>
+      <button class="calculator-key function-key" data-action="percentage">%</button>
+      <button class="calculator-key operation-key" data-operation="/">÷</button>
+
+      <!-- Row 2: 7, 8, 9, Multiply -->
+      <button class="calculator-key number-key" data-number="7">7</button>
+      <button class="calculator-key number-key" data-number="8">8</button>
+      <button class="calculator-key number-key" data-number="9">9</button>
+      <button class="calculator-key operation-key" data-operation="*">×</button>
+
+      <!-- Row 3: 4, 5, 6, Subtract -->
+      <button class="calculator-key number-key" data-number="4">4</button>
+      <button class="calculator-key number-key" data-number="5">5</button>
+      <button class="calculator-key number-key" data-number="6">6</button>
+      <button class="calculator-key operation-key" data-operation="-">−</button>
+
+      <!-- Row 4: 1, 2, 3, Add -->
+      <button class="calculator-key number-key" data-number="1">1</button>
+      <button class="calculator-key number-key" data-number="2">2</button>
+      <button class="calculator-key number-key" data-number="3">3</button>
+      <button class="calculator-key operation-key" data-operation="+">+</button>
+
+      <!-- Row 5: 0, Decimal point, Equals -->
+      <button class="calculator-key number-key zero-key" data-number="0">0</button>
+      <button class="calculator-key number-key" data-action="decimal">.</button>
+      <button class="calculator-key equals-key" data-action="equals">=</button>
+    </div>
+
+    <!-- Error Toast (hidden by default) -->
+    <div id="error-toast" class="error-toast hidden">
+      <span id="error-message"></span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

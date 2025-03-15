@@ -1,0 +1,367 @@
+/* Base styles and variables */
+:root {
+    /* Light mode colors */
+    --background-light: #f5f6fa;
+    --calculator-bg-light: #ffffff;
+    --header-bg-light: #1c3e70;
+    --header-text-light: #ffffff;
+    --display-bg-light: #f0f2f5;
+    --text-primary-light: #2c3e50;
+    --text-secondary-light: #7b8a9a;
+    --key-bg-light: #ffffff;
+    --key-hover-light: #f0f2f5;
+    --key-text-light: #2c3e50;
+    --function-key-bg-light: #e9ecef;
+    --function-key-hover-light: #d9dde3;
+    --operation-key-bg-light: #3f84e5;
+    --operation-key-hover-light: #2c74d4;
+    --operation-key-text-light: #ffffff;
+    --equals-key-bg-light: #f1983c;
+    --equals-key-hover-light: #e08929;
+    --equals-key-text-light: #ffffff;
+    --history-bg-light: #f0f2f5;
+    --border-light: #e2e8f0;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    
+    /* Dark mode colors */
+    --background-dark: #1a1b1e;
+    --calculator-bg-dark: #2a2b2e;
+    --header-bg-dark: #123056;
+    --header-text-dark: #ffffff;
+    --display-bg-dark: #1e1f23;
+    --text-primary-dark: #e2e8f0;
+    --text-secondary-dark: #a0aec0;
+    --key-bg-dark: #3a3b3e;
+    --key-hover-dark: #4a4b4e;
+    --key-text-dark: #e2e8f0;
+    --function-key-bg-dark: #2a2b2e;
+    --function-key-hover-dark: #3a3b3e;
+    --operation-key-bg-dark: #2c6ac2;
+    --operation-key-hover-dark: #2059af;
+    --operation-key-text-dark: #ffffff;
+    --equals-key-bg-dark: #d9812e;
+    --equals-key-hover-dark: #c67620;
+    --equals-key-text-dark: #ffffff;
+    --history-bg-dark: #1e1f23;
+    --border-dark: #444446;
+    --shadow-dark: rgba(0, 0, 0, 0.3);
+    
+    /* Common variables */
+    --border-radius: 12px;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+  }
+  
+  /* Apply light mode variables by default */
+  body {
+    --background: var(--background-light);
+    --calculator-bg: var(--calculator-bg-light);
+    --header-bg: var(--header-bg-light);
+    --header-text: var(--header-text-light);
+    --display-bg: var(--display-bg-light);
+    --text-primary: var(--text-primary-light);
+    --text-secondary: var(--text-secondary-light);
+    --key-bg: var(--key-bg-light);
+    --key-hover: var(--key-hover-light);
+    --key-text: var(--key-text-light);
+    --function-key-bg: var(--function-key-bg-light);
+    --function-key-hover: var(--function-key-hover-light);
+    --operation-key-bg: var(--operation-key-bg-light);
+    --operation-key-hover: var(--operation-key-hover-light);
+    --operation-key-text: var(--operation-key-text-light);
+    --equals-key-bg: var(--equals-key-bg-light);
+    --equals-key-hover: var(--equals-key-hover-light);
+    --equals-key-text: var(--equals-key-text-light);
+    --history-bg: var(--history-bg-light);
+    --border: var(--border-light);
+    --shadow: var(--shadow-light);
+  }
+  
+  /* Dark mode theme */
+  body.dark-mode {
+    --background: var(--background-dark);
+    --calculator-bg: var(--calculator-bg-dark);
+    --header-bg: var(--header-bg-dark);
+    --header-text: var(--header-text-dark);
+    --display-bg: var(--display-bg-dark);
+    --text-primary: var(--text-primary-dark);
+    --text-secondary: var(--text-secondary-dark);
+    --key-bg: var(--key-bg-dark);
+    --key-hover: var(--key-hover-dark);
+    --key-text: var(--key-text-dark);
+    --function-key-bg: var(--function-key-bg-dark);
+    --function-key-hover: var(--function-key-hover-dark);
+    --operation-key-bg: var(--operation-key-bg-dark);
+    --operation-key-hover: var(--operation-key-hover-dark);
+    --operation-key-text: var(--operation-key-text-dark);
+    --equals-key-bg: var(--equals-key-bg-dark);
+    --equals-key-hover: var(--equals-key-hover-dark);
+    --equals-key-text: var(--equals-key-text-dark);
+    --history-bg: var(--history-bg-dark);
+    --border: var(--border-dark);
+    --shadow: var(--shadow-dark);
+  }
+  
+  /* General Styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  body {
+    background-color: var(--background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .calculator-container {
+    background-color: var(--calculator-bg);
+    width: 100%;
+    max-width: 375px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 10px 15px var(--shadow);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Calculator Header */
+  .calculator-header {
+    background-color: var(--header-bg);
+    padding: var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--header-text);
+    transition: background-color 0.3s ease;
+  }
+  
+  .calculator-header h1 {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  
+  .header-buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .icon-button {
+    background: transparent;
+    color: var(--header-text);
+    border: none;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .icon-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* History Panel */
+  .history-panel {
+    background-color: var(--history-bg);
+    padding: var(--spacing-md);
+    max-height: 200px;
+    overflow-y: auto;
+    transition: background-color 0.3s ease;
+  }
+  
+  .history-panel h2 {
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  
+  .history-list {
+    list-style: none;
+    margin-bottom: 0.5rem;
+  }
+  
+  .history-list li {
+    border-bottom: 1px solid var(--border);
+    padding: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+  }
+  
+  .history-list li .calculation {
+    color: var(--text-secondary);
+    text-align: left;
+  }
+  
+  .history-list li .result {
+    font-weight: 500;
+  }
+  
+  .clear-history-btn {
+    background: none;
+    border: none;
+    color: var(--operation-key-bg);
+    font-size: 0.75rem;
+    cursor: pointer;
+    padding: 0;
+    display: block;
+    margin-top: 0.5rem;
+    transition: color 0.2s ease;
+  }
+  
+  .clear-history-btn:hover {
+    color: var(--operation-key-hover);
+    text-decoration: underline;
+  }
+  
+  /* Calculator Display */
+  .calculator-display {
+    background-color: var(--display-bg);
+    padding: var(--spacing-md);
+    text-align: right;
+    transition: background-color 0.3s ease;
+  }
+  
+  .previous-operation {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    height: 1.5rem;
+    margin-bottom: 0.25rem;
+    font-family: 'Roboto Mono', monospace;
+    overflow-x: auto;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+  }
+  
+  .current-input {
+    font-size: 1.75rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    height: 2.5rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-family: 'Roboto Mono', monospace;
+    transition: color 0.3s ease;
+  }
+  
+  /* Calculator Keypad */
+  .calculator-keypad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.25rem;
+    padding: 0.5rem;
+    background-color: var(--display-bg);
+    transition: background-color 0.3s ease;
+  }
+  
+  .calculator-key {
+    height: 3.75rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.25rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  .calculator-key svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .number-key {
+    background-color: var(--key-bg);
+    color: var(--key-text);
+  }
+  
+  .number-key:hover {
+    background-color: var(--key-hover);
+  }
+  
+  .function-key {
+    background-color: var(--function-key-bg);
+    color: var(--key-text);
+  }
+  
+  .function-key:hover {
+    background-color: var(--function-key-hover);
+  }
+  
+  .operation-key {
+    background-color: var(--operation-key-bg);
+    color: var(--operation-key-text);
+  }
+  
+  .operation-key:hover {
+    background-color: var(--operation-key-hover);
+  }
+  
+  .equals-key {
+    background-color: var(--equals-key-bg);
+    color: var(--equals-key-text);
+  }
+  
+  .equals-key:hover {
+    background-color: var(--equals-key-hover);
+  }
+  
+  .zero-key {
+    grid-column: span 2;
+  }
+  
+  /* Error toast */
+  .error-toast {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #e53e3e;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-size: 0.875rem;
+  }
+  
+  /* Responsive styles for smaller screens */
+  @media (max-width: 400px) {
+    .calculator-key {
+      height: 3.5rem;
+      font-size: 1.125rem;
+    }
+    
+    .current-input {
+      font-size: 1.5rem;
+    }
+  }
+  
+  /* Active button styles for better feedback */
+  .calculator-key:active {
+    transform: scale(0.98);
+  }
